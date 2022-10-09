@@ -1,0 +1,49 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+    z-index: 10;
+    &_hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+    &__icon {
+        width: 25px;
+        height: 25px;
+        background: url('../img/icons/loader.svg') no-repeat 50% 50%;
+        background-size: contain;
+        fill: white;
+        animation: rotating 1s;
+        animation-iteration-count: infinite;
+    }
+}
+
+@media screen and(max-width: 768px) {
+    .preloader {
+        flex-direction: column;
+		&__logo {
+            width: 100%;
+            padding: 0 20px;
+        }
+		&__icon {
+            margin-top: 20px;
+        }
+    }
+}
+
+@keyframes rotating {
+    from {
+      transform: rotate(0);
+    }
+  
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,145 @@
+.header {
+    display: flex;
+    justify-content: flex-end;
+    color: $color-main;
+    &__header-menu {
+    }
+    &__button {}
+}
+.header-menu {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    &__list {
+        display: flex;
+        list-style: none;
+        height: 100%;
+    }
+    &__elem {
+        margin-right: 40px;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        border-bottom: 1px solid transparent;
+        transition: .3s;
+        cursor: pointer;
+        &:hover:not(:last-child){
+            border-bottom: 1px solid $color-main;
+        }
+        &_schedule {
+            display: none;
+        }
+    }
+    &__text {
+        font-size: 12px;
+    }
+}
+.burger-button {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background-color: $color-main;
+    position: relative;
+    transition: .3s;
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 20px;
+        height: 1px;
+        background-color: $color-main;
+        transition: .3s;
+    }
+    &::before {
+        top: 5px;
+    }
+    &::after {
+        bottom: 5px;
+    }
+    &_active {
+        background-color: transparent;
+        &::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+        &::after {
+            bottom: 0;
+            transform: rotate(-45deg);
+        }
+    }
+}
+.button {
+    width: 130px;
+    height: 50px;
+    background-color: $color-main;
+    border: none;
+    font-weight: 300;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+    cursor: pointer;
+    &__text {
+        font-size: 12px;
+    }
+    &__icon {
+        margin-left: 10px;
+    }
+    &:hover {
+        background-color: $color-hover;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        justify-content: space-between;
+		&__menu {}
+		&__button {
+            flex: 0 0 50px;
+        }
+    }
+    .header-menu {
+        width: 100%;
+        &__list {
+            width: 100%;
+            justify-content: space-between;
+        }
+        &__elem {
+            display: none;
+            &_burger {
+                display: flex;
+                margin-left: 20px;
+            }
+            &_schedule {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+                order: 2;
+                margin-right: 15px;
+            }
+        }
+        &__text {
+            font-size: 8px;
+        }
+        &__link {
+            color: $color-main;
+            text-decoration: none;
+            font-size: 1.8em;
+            font-weight: 900;
+            margin-bottom: 2px;
+        }
+    }
+    .burger-button {
+    }
+    .button {
+        width: 50px;
+        &__text {
+            display: none;
+        }
+        &__icon {
+            margin: 0;
+        }
+    }
+}

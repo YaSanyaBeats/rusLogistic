@@ -1,0 +1,71 @@
+*,
+*::before,
+*::after{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body{
+	overflow-x: hidden;
+	font-family: Inter;
+	font-weight: 300;
+	min-height: 100vh;
+	font-size: 10px;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	overflow: hidden;
+}
+
+.container{
+	width: 1040px;
+	margin: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+@media screen and (min-width: 2000px) {
+	html, body{
+		font-size: 14px;
+	}
+	.container{
+		width: 1600px;
+		margin: auto;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	html, body{
+		font-size: 10px;
+	}
+	.container{
+		width: 100%;
+		margin: auto;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	html{
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
+		touch-action: manipulation;
+	}
+	body{
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
+		touch-action: manipulation;
+	}
+	.container{
+		width: 100%;
+		margin: auto;
+	}
+}

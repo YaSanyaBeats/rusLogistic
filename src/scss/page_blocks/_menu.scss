@@ -1,0 +1,193 @@
+.menu {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    color: $color-main;
+    border-top: 1px solid $color-main;
+    z-index: 3;
+    transition: .3s;
+    transform: translateX(100%);
+    max-height: calc(100vh - 50px);
+    overflow: hidden;
+    opacity: 0;
+    visibility: visible;
+    &__list {
+        list-style: none;
+        display: flex;
+        height: 100%;
+    }
+    &__elem {}
+    &_active {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+}
+.menu-elem {
+    display: flex;
+    &_active {
+        & .menu-elem__content {
+            max-width: 550px;
+            padding: 50px 30px 30px 30px;
+        }
+        & .menu-elem__header {
+            border-right: 1px solid $color-main;
+            background-color: $color-main;
+            color: white;
+        }
+    }
+    &:last-child {
+        & .menu-elem__header {
+            border-right: 1px solid $color-main;
+        }
+    }
+    &__header {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 30px;
+        border-left: 1px solid $color-main;
+        transition: .2s;
+        cursor: pointer;
+        &:hover {
+            background-color: $color-main;
+            color: white;
+        }
+    }
+    &__number {
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        margin-top: 30px;
+    }
+    &__title {
+        writing-mode: vertical-lr;
+        text-transform: uppercase;
+        transform: rotate(180deg);
+    }
+    &__content {
+        transition: .3s;
+        padding: 0;
+        max-width: 0;
+        overflow: hidden;
+    }
+    &__content-header {
+        position: relative;
+        margin-bottom: 60px;
+        &::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            bottom: -30px;
+            width: 460px;
+            height: 1px;
+            background-color: $color-main;
+        }
+    }
+    &__numbering {
+        width: 270px;
+    }
+    &__description {
+        font-size: 12px;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        width: 270px;
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            right: -50px;
+            bottom: -50px;
+            width: 1px;
+            height: 90px;
+            background-color: $color-main;
+        }
+    }
+    &__content-main {
+        font-size: 12px;
+        width: 490px;
+    }
+}
+
+.menu-elem:nth-child(1) {
+    & .menu-elem__content-main {
+        & img {
+            margin-top: 30px;
+            margin-bottom: 25px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu {
+        width: 100%;
+        height: calc(100vh - 50px);
+        transform: scaleX(0);
+        transform-origin: 0 0;
+		&__list {
+            flex-direction: column;
+            height: 100%;
+            overflow-y: scroll;
+        }
+		&__elem {}
+        &_active {
+            transform: scale(1);
+        }
+    }
+    .menu-elem {
+        flex-direction: column;
+            &_active {
+                & .menu-elem__content {
+                    padding: 20px;
+                    max-height: 150vh;
+                }
+            }
+            &:last-child .menu-elem__header{
+                border-bottom: 1px solid $color-main;
+            }
+            &:not(:first-child) .menu-elem__header{
+                border-top: 1px solid $color-main;
+            }
+            &__header {
+                flex-direction: row;
+                padding: 20px;
+                border-left: none;
+                border-right: none;
+            }
+            &__number {
+                margin-top: 2px;
+                margin-right: 10px;
+                transform: none;
+                writing-mode: horizontal-tb;
+            }
+            &__title {
+                transform: none;
+                writing-mode: horizontal-tb;
+            }
+            &__content {
+                max-width: 100%;
+                max-height: 0;
+                overflow: hidden;
+            }
+            &__content-header {}
+            &__numbering {}
+            &__description {}
+            &__content-main {
+                width: 100%;
+                & img {
+                    width: 100%;
+                }
+            }
+    }
+    .numbering {
+            &_menu {}
+            &__list {}
+            &__elem {
+                &_active {}
+            }
+            &__title {}
+    }
+}

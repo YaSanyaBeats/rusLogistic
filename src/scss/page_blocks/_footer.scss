@@ -1,0 +1,40 @@
+.footer {
+    border-top: 1px solid white;
+    color: white;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 10px 0;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -15px;
+            width: 1px;
+            height: 70px;
+            background-color: white;
+        }
+    }
+    &__logo {
+        font-size: 24px;
+        line-height: 20px;
+        text-transform: uppercase;
+    }
+    &__info {
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .footer {
+        &__container {
+            padding: 10px 40px;
+            &::before {
+                left: 20px;
+            }
+        }
+    }
+}
